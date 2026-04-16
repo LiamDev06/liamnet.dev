@@ -3,7 +3,7 @@ plugins {
 }
 
 allprojects {
-    group = "com.template"
+    group = "com.liamnet"
     version = "0.0.1"
 
     repositories {
@@ -13,7 +13,7 @@ allprojects {
 }
 
 tasks.register("lint") {
-    dependsOn(":template-server:lint")
+    dependsOn(":liamnet-server:lint")
 }
 
 subprojects {

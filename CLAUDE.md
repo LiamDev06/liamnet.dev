@@ -5,14 +5,14 @@ Full-stack web application with a **Next.js** frontend, **Spring Boot** backend,
 ## Project structure
 
 ```
-├── template-api/                        # Conjure API definition + generated code
+├── liamnet-api/                        # Conjure API definition + generated code
 │   ├── src/main/conjure/api.yml        # Source of truth for the API — edit this
-│   ├── template-api-objects/            # Generated Java types (never edit)
-│   ├── template-api-jersey/             # Generated Java server interfaces (never edit)
-│   └── template-api-typescript/         # Generated TypeScript client (never edit)
-├── template-server/                     # Spring Boot application
+│   ├── liamnet-api-objects/            # Generated Java types (never edit)
+│   ├── liamnet-api-jersey/             # Generated Java server interfaces (never edit)
+│   └── liamnet-api-typescript/         # Generated TypeScript client (never edit)
+├── liamnet-server/                     # Spring Boot application
 │   └── src/main/java/com/template/server/
-├── template-app/                        # Next.js application
+├── liamnet-app/                        # Next.js application
 │   └── src/
 │       ├── app/                         # Next.js app router
 │       ├── components/
@@ -100,11 +100,11 @@ class MyServiceTest { ... }
 
 ### Never edit generated code
 
-The contents of `template-api-objects/`, `template-api-jersey/`, and `template-api-typescript/` are fully generated. Any manual changes will be overwritten. All API changes go through `api.yml`.
+The contents of `liamnet-api-objects/`, `liamnet-api-jersey/`, and `liamnet-api-typescript/` are fully generated. Any manual changes will be overwritten. All API changes go through `api.yml`.
 
 ### Changing the API
 
-1. Edit `template-api/src/main/conjure/api.yml`
+1. Edit `liamnet-api/src/main/conjure/api.yml`
 2. Run `make gen-api-client` — regenerates Java interfaces and TypeScript client
 3. Implement any new/changed methods in the server resource class
 4. The TypeScript client is automatically available in the frontend via `src/lib/api.ts`
@@ -180,9 +180,9 @@ export default function SomeComponent() {
 
 ### Frontend code quality
 
-The frontend uses ESLint and Prettier. When working in `template-app`, treat lint compliance as part of the implementation, not as optional cleanup after the fact.
+The frontend uses ESLint and Prettier. When working in `liamnet-app`, treat lint compliance as part of the implementation, not as optional cleanup after the fact.
 
-Important frontend commands, run from `template-app`:
+Important frontend commands, run from `liamnet-app`:
 
 ```bash
 npm run lint
@@ -230,7 +230,7 @@ When adding imports, prefer normal imports over inline fully qualified access pa
 
 ### NPM
 
-Run these from `template-app`.
+Run these from `liamnet-app`.
 
 | Command | Description |
 |---|---|

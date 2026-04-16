@@ -27,7 +27,7 @@ echo ""
 # ---------------------------------------------------------------------------
 echo "==> Replacing template references in files..."
 
-# com.template -> com.<name> (Java packages, Conjure YAML, Gradle group)
+# com.liamnet -> com.<name> (Java packages, Conjure YAML, Gradle group)
 find . -type f \( -name "*.java" -o -name "*.kts" -o -name "*.yml" -o -name "*.yaml" -o -name "*.json" -o -name "*.ts" -o -name "*.tsx" -o -name "*.sh" -o -name "Makefile" \) \
   -not -path "*/build/*" -not -path "*/node_modules/*" -not -path "*/.git/*" \
   -exec sed -i '' "s/com\.template/com.$NAME_PACKAGE/g" {} +
@@ -37,12 +37,12 @@ find . -type f -name "*.java" \
   -not -path "*/build/*" \
   -exec sed -i '' "s/Template/$NAME_PASCAL/g" {} +
 
-# @template/ -> @<name>/  and  template- -> <name>- (module names, paths, npm scope, scripts)
+# @liamnet/ -> @<name>/  and  liamnet- -> <name>- (module names, paths, npm scope, scripts)
 find . -type f \( -name "*.kts" -o -name "*.yml" -o -name "*.yaml" -o -name "*.json" -o -name "*.ts" -o -name "*.tsx" -o -name "*.sh" -o -name "CLAUDE.md" -o -name "Makefile" \) \
   -not -path "*/build/*" -not -path "*/node_modules/*" -not -path "*/.git/*" \
-  -exec sed -i '' "s|@template/|@$NAME/|g; s/template-/$NAME-/g" {} +
+  -exec sed -i '' "s|@liamnet/|@$NAME/|g; s/liamnet-/$NAME-/g" {} +
 
-# rootProject.name = "template" (bare word, not caught by template- pattern)
+# rootProject.name = "template" (bare word, not caught by liamnet- pattern)
 sed -i '' "s/rootProject\.name = \"template\"/rootProject.name = \"$NAME\"/" settings.gradle.kts
 
 # ---------------------------------------------------------------------------
@@ -51,8 +51,8 @@ sed -i '' "s/rootProject\.name = \"template\"/rootProject.name = \"$NAME\"/" set
 echo "==> Renaming Java source directories..."
 
 for dir in \
-  "template-server/src/main/java/com/template" \
-  "template-server/src/test/java/com/template"
+  "liamnet-server/src/main/java/com/template" \
+  "liamnet-server/src/test/java/com/template"
 do
   if [ -d "$dir" ]; then
     mv "$dir" "$(dirname "$dir")/$NAME_PACKAGE"
@@ -65,8 +65,8 @@ done
 echo "==> Renaming Java source files..."
 
 for file in \
-  "template-server/src/main/java/com/$NAME_PACKAGE/server/TemplateServer.java" \
-  "template-server/src/test/java/com/$NAME_PACKAGE/server/TemplateServerTest.java"
+  "liamnet-server/src/main/java/com/$NAME_PACKAGE/server/TemplateServer.java" \
+  "liamnet-server/src/test/java/com/$NAME_PACKAGE/server/TemplateServerTest.java"
 do
   if [ -f "$file" ]; then
     mv "$file" "${file//Template/$NAME_PASCAL}"
@@ -78,12 +78,12 @@ done
 # ---------------------------------------------------------------------------
 echo "==> Renaming module directories..."
 
-mv "template-api/template-api-jersey"     "template-api/$NAME-api-jersey"
-mv "template-api/template-api-objects"    "template-api/$NAME-api-objects"
-mv "template-api/template-api-typescript" "template-api/$NAME-api-typescript"
-mv "template-api"    "$NAME-api"
-mv "template-server" "$NAME-server"
-mv "template-app"    "$NAME-app"
+mv "liamnet-api/liamnet-api-jersey"     "liamnet-api/$NAME-api-jersey"
+mv "liamnet-api/liamnet-api-objects"    "liamnet-api/$NAME-api-objects"
+mv "liamnet-api/liamnet-api-typescript" "liamnet-api/$NAME-api-typescript"
+mv "liamnet-api"    "$NAME-api"
+mv "liamnet-server" "$NAME-server"
+mv "liamnet-app"    "$NAME-app"
 
 # ---------------------------------------------------------------------------
 # Step 5: Copy environment files

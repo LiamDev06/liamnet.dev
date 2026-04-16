@@ -1,7 +1,7 @@
 services:
   postgres:
     image: postgres:17
-    container_name: template-postgres
+    container_name: liamnet-postgres
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres

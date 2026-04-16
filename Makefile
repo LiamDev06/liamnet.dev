@@ -18,10 +18,10 @@ db:
 	@docker compose up -d postgres
 
 server:
-	@./gradlew :template-server:bootRun
+	@./gradlew :liamnet-server:bootRun
 
 frontend:
-	@cd template-app && npm run dev
+	@cd liamnet-app && npm run dev
 
 %:
 	@:

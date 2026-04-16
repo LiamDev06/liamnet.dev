@@ -10,10 +10,10 @@ pluginManagement {
     }
 }
 
-rootProject.name = "template"
+rootProject.name = "liamnet"
 
-include("template-server")
-include("template-api")
-include("template-api:template-api-typescript")
-include("template-api:template-api-objects")
-include("template-api:template-api-jersey")
+include("liamnet-server")
+include("liamnet-api")
+include("liamnet-api:liamnet-api-typescript")
+include("liamnet-api:liamnet-api-objects")
+include("liamnet-api:liamnet-api-jersey")
