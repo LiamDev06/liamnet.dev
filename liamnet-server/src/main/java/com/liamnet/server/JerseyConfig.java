@@ -1,6 +1,5 @@
 package com.liamnet.server;
 
-import com.liamnet.server.user.UserResource;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,6 +10,5 @@ public class JerseyConfig extends ResourceConfig {
     public JerseyConfig() {
         register(CorsFilter.class);
         register(ServiceExceptionMapper.class);
-        register(UserResource.class);
     }
 }

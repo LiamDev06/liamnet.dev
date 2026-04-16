@@ -1,5 +1,4 @@
 import { DefaultHttpApiBridge } from "conjure-client";
-import { UserService } from "@liamnet/liamnet-api";
 import { config } from "@/config";
 
 const bridge = new DefaultHttpApiBridge({
@@ -10,8 +9,6 @@ const bridge = new DefaultHttpApiBridge({
   },
 });
 
-const userService = new UserService(bridge);
-
 export const api = {
-  userService,
+  // TODO: Setup first service
 };

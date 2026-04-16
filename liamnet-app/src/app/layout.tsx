@@ -5,8 +5,8 @@ import { getLocale, getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 
 export const metadata: Metadata = {
-  title: "Template App",
-  description: "Template App",
+  title: "LiamNet - Liam Hillefors's Personal site",
+  description: "LiamNet - Liam Hillefors's Personal site",
 };
 
 type RootLayoutProps = {
