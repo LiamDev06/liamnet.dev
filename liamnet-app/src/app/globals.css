@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  --bg: #0d0d0d;
+  --bg-surface: #141414;
+  --bg-tool: #161616;
+  --bg-tool-header: #1a1a1a;
+  --bg-input: #1a1a1a;
+  --text: #d4d4d4;
+  --text-dim: #888;
+  --text-faint: #555;
+  --accent-orange: #d97757;
+  --accent-blue: #6ba3d4;
+  --accent-green: #6dba88;
+  --accent-purple: #a882c4;
+  --accent-yellow: #c4b06a;
+  --border: #262626;
+  --border-tool: #2a2a2a;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media print {
+  body {
+    background: #fff;
+    color: #222;
+  }
+}
