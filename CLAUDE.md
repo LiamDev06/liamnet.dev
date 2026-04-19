@@ -1,6 +1,6 @@
 ## Project overview
 
-Full-stack web application with a **Next.js** frontend, **Spring Boot** backend, and **Palantir Conjure** as the API contract layer. Conjure generates both the Java server interfaces and the TypeScript client from a single YAML definition — the frontend and backend are always in sync by construction.
+Full-stack web application for the personal website of Liam Hillefors, "liamnet". It has a **Next.js** frontend, **Spring Boot** backend, and **Palantir Conjure** as the API contract layer. Conjure generates both the Java server interfaces and the TypeScript client from a single YAML definition — the frontend and backend are always in sync by construction.
 
 ## Project structure
 
