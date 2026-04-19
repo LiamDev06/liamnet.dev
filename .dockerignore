@@ -1,0 +1,13 @@
+.git
+.idea
+.gradle
+.DS_Store
+docs/
+terraform/
+.github/
+**/node_modules
+**/.next
+liamnet-api/liamnet-api-jersey/build/
+liamnet-api/liamnet-api-objects/build/
+liamnet-api/liamnet-api-typescript/src/node_modules/
+**/.env
