@@ -54,6 +54,7 @@ const eslintConfig = defineConfig([
         },
       ],
       "no-console": ["warn", { allow: ["warn", "error"] }],
+      "react/no-unescaped-entities": "off",
       "no-debugger": "error",
       "no-else-return": ["error", { allowElseIf: false }],
       "no-var": "error",
