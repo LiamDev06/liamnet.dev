@@ -1,6 +1,6 @@
 resource "aws_ecr_repository" "app" {
   name                 = "${var.app_name}-app"
-  image_tag_mutability = "IMMUTABLE"
+  image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {
     scan_on_push = true
@@ -13,7 +13,7 @@ resource "aws_ecr_repository" "app" {
 
 resource "aws_ecr_repository" "server" {
   name                 = "${var.app_name}-server"
-  image_tag_mutability = "IMMUTABLE"
+  image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {
     scan_on_push = true

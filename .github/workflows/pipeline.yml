@@ -148,7 +148,7 @@ jobs:
           COMMAND_ID=$(aws ssm send-command \
             --instance-ids "$EC2_INSTANCE_ID" \
             --document-name AWS-RunShellScript \
-            --parameters 'commands=["set -a && source /opt/liamnet/.env && set +a && aws ssm get-parameter --name /liamnet/docker-compose-prod --region eu-north-1 --query Parameter.Value --output text > /opt/liamnet/docker-compose.prod.yml && aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin $ECR_REGISTRY && cd /opt/liamnet && docker compose -f docker-compose.prod.yml pull && docker compose -f docker-compose.prod.yml up -d --remove-orphans"]' \
+            --parameters 'commands=["set -a && source /opt/liamnet/.env && set +a && aws ssm get-parameter --name /liamnet/docker-compose-prod --region eu-north-1 --query Parameter.Value --output text > /opt/liamnet/docker-compose.prod.yml && aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin $ECR_REGISTRY && cd /opt/liamnet && docker compose -f docker-compose.prod.yml pull && docker compose -f docker-compose.prod.yml up -d --remove-orphans --wait --wait-timeout 300"]' \
             --output text \
             --query Command.CommandId)
 
