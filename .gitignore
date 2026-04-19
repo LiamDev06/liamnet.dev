@@ -19,3 +19,4 @@ terraform/*.tfvars.json
 
 # Personal files
 bootstrap-ec2.sh
+notes.txt
