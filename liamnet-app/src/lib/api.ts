@@ -1,6 +1,8 @@
 import { DefaultHttpApiBridge } from "conjure-client";
+
 import { config } from "@/config";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const bridge = new DefaultHttpApiBridge({
   baseUrl: config.apiBaseUrl,
   userAgent: {
