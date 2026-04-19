@@ -9,7 +9,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - liamnet-internal
+      - liamnet-backend
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
@@ -22,14 +22,17 @@ services:
     image: ${ECR_REGISTRY}/liamnet-server:latest
     container_name: liamnet-server
     env_file: .env
+    ports:
+      - "127.0.0.1:8080:8080"
     networks:
-      - liamnet-internal
+      - liamnet-backend
+      - liamnet-frontend
     restart: unless-stopped
     depends_on:
       postgres:
         condition: service_healthy
     healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/actuator/health | grep -q '\"status\":\"UP\"' || exit 1"]
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:8080/actuator/health | grep -q '\"status\":\"UP\"' || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -44,14 +47,16 @@ services:
     image: ${ECR_REGISTRY}/liamnet-app:latest
     container_name: liamnet-app
     env_file: .env
+    ports:
+      - "127.0.0.1:3000:3000"
     networks:
-      - liamnet-internal
+      - liamnet-frontend
     restart: unless-stopped
     depends_on:
       liamnet-server:
         condition: service_healthy
     healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:3000/health || exit 1"]
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/health || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -63,7 +68,9 @@ services:
         max-file: "5"
 
 networks:
-  liamnet-internal:
+  liamnet-backend:
+    driver: bridge
+  liamnet-frontend:
     driver: bridge
 
 volumes:
