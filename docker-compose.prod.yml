@@ -1,0 +1,70 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: liamnet-postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - liamnet-internal
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  liamnet-server:
+    image: ${ECR_REGISTRY}/liamnet-server:latest
+    container_name: liamnet-server
+    env_file: .env
+    networks:
+      - liamnet-internal
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/actuator/health | grep -q '\"status\":\"UP\"' || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 90s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+  liamnet-app:
+    image: ${ECR_REGISTRY}/liamnet-app:latest
+    container_name: liamnet-app
+    env_file: .env
+    networks:
+      - liamnet-internal
+    restart: unless-stopped
+    depends_on:
+      liamnet-server:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:3000/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+networks:
+  liamnet-internal:
+    driver: bridge
+
+volumes:
+  postgres_data:
