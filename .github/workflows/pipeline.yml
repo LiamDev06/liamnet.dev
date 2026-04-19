@@ -17,6 +17,10 @@ on:
       - "docker-compose.prod.yml"
       - ".github/workflows/pipeline.yml"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   lint-test-frontend:
     name: Frontend lint & typecheck
