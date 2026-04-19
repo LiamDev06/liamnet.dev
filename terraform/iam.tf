@@ -37,12 +37,24 @@ data "aws_iam_policy_document" "ec2_permissions" {
     ]
   }
 
+  statement {
+    sid       = "SSMGetParameter"
+    effect    = "Allow"
+    actions   = ["ssm:GetParameter"]
+    resources = ["arn:aws:ssm:*:*:parameter/liamnet/*"]
+  }
+
 }
 
 resource "aws_iam_role_policy" "ec2" {
   name   = "${var.app_name}-ec2-policy"
   role   = aws_iam_role.ec2.id
   policy = data.aws_iam_policy_document.ec2_permissions.json
+}
+
+resource "aws_iam_role_policy_attachment" "ec2_ssm" {
+  role       = aws_iam_role.ec2.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
 resource "aws_iam_instance_profile" "ec2" {
@@ -111,6 +123,30 @@ data "aws_iam_policy_document" "github_actions_permissions" {
       aws_ecr_repository.app.arn,
       aws_ecr_repository.server.arn,
     ]
+  }
+
+  statement {
+    sid    = "SSMSendCommand"
+    effect = "Allow"
+    actions = ["ssm:SendCommand"]
+    resources = [
+      "arn:aws:ec2:*:*:instance/*",
+      "arn:aws:ssm:*::document/AWS-RunShellScript",
+    ]
+  }
+
+  statement {
+    sid    = "SSMGetCommandInvocation"
+    effect = "Allow"
+    actions = ["ssm:GetCommandInvocation"]
+    resources = ["*"]
+  }
+
+  statement {
+    sid       = "SSMPutParameter"
+    effect    = "Allow"
+    actions   = ["ssm:PutParameter"]
+    resources = ["arn:aws:ssm:*:*:parameter/liamnet/*"]
   }
 }
 
