@@ -1,0 +1,85 @@
+.toolBlock {
+  background: var(--bg-tool);
+  border: 1px solid var(--border-tool);
+  border-radius: 8px;
+  margin: 12px 0 16px;
+  overflow: hidden;
+}
+
+.toolBlock__head {
+  background: var(--bg-tool-header);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  border: none;
+  border-bottom: 1px solid var(--border-tool);
+  color: inherit;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.toolBlock__head:hover {
+  background: #1f1f1f;
+}
+
+.toolBlock__head:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: -2px;
+}
+
+.toolBlock__head[aria-expanded="false"] {
+  border-bottom: none;
+}
+
+.toolBlock__chevron {
+  color: var(--text-faint);
+  font-size: 11px;
+  user-select: none;
+}
+
+.toolBlock__label {
+  color: var(--accent-blue);
+  font-weight: 500;
+}
+
+.toolBlock__arg {
+  color: var(--text-dim);
+  margin-left: 2px;
+}
+
+.toolBlock__status {
+  margin-left: auto;
+  color: var(--accent-green);
+  font-size: 12.5px;
+}
+
+.toolBlock__body {
+  padding: 20px 22px;
+}
+
+@media (max-width: 600px) {
+  .toolBlock__body {
+    padding: 16px;
+  }
+}
+
+@media print {
+  .toolBlock {
+    background: #f6f6f6;
+    border-color: #ddd;
+  }
+
+  .toolBlock__head {
+    background: #eee;
+    border-color: #ddd;
+  }
+
+  .toolBlock__label {
+    color: #2a6cb8;
+  }
+}

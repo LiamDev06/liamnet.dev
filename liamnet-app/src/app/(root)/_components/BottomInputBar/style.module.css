@@ -1,0 +1,161 @@
+.bottomInputBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg);
+  z-index: 10;
+  padding: 14px 28px 18px;
+}
+
+.bottomInputBar__wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.bottomInputBar__box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 6px;
+  border-top: 1px solid #3a3a3a;
+  border-bottom: 1px solid #3a3a3a;
+  background: transparent;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.bottomInputBar__caret {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent-orange);
+  user-select: none;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.bottomInputBar__inputWrapper {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  height: 24px;
+}
+
+.bottomInputBar__input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 17px;
+  color: transparent;
+  caret-color: transparent;
+  font-family: var(--font-sans);
+  line-height: 1.4;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  z-index: 1;
+}
+
+.bottomInputBar__display {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  font-family: var(--font-sans);
+  line-height: 1.4;
+  pointer-events: none;
+  white-space: pre;
+  overflow: hidden;
+}
+
+.bottomInputBar__placeholderText {
+  color: var(--text-faint);
+}
+
+.bottomInputBar__typed {
+  color: var(--text);
+}
+
+.bottomInputBar__cursor {
+  display: inline-block;
+  width: 10px;
+  height: 20px;
+  background: var(--text);
+  opacity: 0.85;
+  margin-left: 1px;
+  animation: blink 1.1s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.bottomInputBar__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 6px 0;
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+.bottomInputBar__modeGroup {
+  display: inline-flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.bottomInputBar__mode--bypass {
+  color: #c45a5a;
+}
+
+.bottomInputBar__mode--plan {
+  color: #3a7971;
+}
+
+.bottomInputBar__hint {
+  color: var(--text-faint);
+}
+
+.bottomInputBar__right {
+  display: flex;
+  gap: 14px;
+  color: var(--text-faint);
+}
+
+@media print {
+  .bottomInputBar {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .bottomInputBar {
+    padding: 10px 16px calc(14px + env(safe-area-inset-bottom));
+  }
+
+  .bottomInputBar__meta {
+    font-size: 12px;
+  }
+
+  .bottomInputBar__hint {
+    display: none;
+  }
+
+  .bottomInputBar__right span:last-child {
+    display: none;
+  }
+}

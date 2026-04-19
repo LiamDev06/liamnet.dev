@@ -1,0 +1,63 @@
+.contactCard {
+  background: #111;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px 20px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.75;
+  overflow-x: auto;
+  margin: 8px 0 14px;
+}
+
+.jsonLine {
+  padding-left: 1em;
+}
+
+.jsonLine__prop {
+  color: var(--accent-blue);
+}
+
+.jsonLine__str {
+  color: var(--accent-green);
+}
+
+.contactCard__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+}
+
+.contactEntry {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+.contactEntry:hover {
+  text-decoration: underline;
+}
+
+.contactEntry__label {
+  color: var(--text-faint);
+}
+
+@media print {
+  .contactCard {
+    background: #f4f4f4;
+    border-color: #ddd;
+  }
+
+  .contactEntry {
+    color: #2a6cb8;
+  }
+}
+
+@media (max-width: 600px) {
+  .contactCard__links {
+    flex-direction: column;
+    gap: 4px;
+  }
+}

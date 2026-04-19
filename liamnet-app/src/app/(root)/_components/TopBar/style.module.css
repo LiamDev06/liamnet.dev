@@ -1,0 +1,38 @@
+.topBar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 28px;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+}
+
+.topBar__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-dim);
+}
+
+.topBar__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-green);
+}
+
+@media print {
+  .topBar {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .topBar {
+    padding: 10px 16px;
+  }
+}

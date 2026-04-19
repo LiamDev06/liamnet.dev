@@ -1,0 +1,25 @@
+.assistantMessage {
+  margin-bottom: 8px;
+  font-size: 16.5px;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.assistantMessage p {
+  margin-bottom: 14px;
+}
+
+.assistantMessage p:last-child {
+  margin-bottom: 0;
+}
+
+.assistantMessage strong {
+  color: #e0e0e0;
+  font-weight: 600;
+}
+
+@media print {
+  .assistantMessage strong {
+    color: #111;
+  }
+}

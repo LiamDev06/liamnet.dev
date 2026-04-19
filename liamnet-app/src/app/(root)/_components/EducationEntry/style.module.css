@@ -1,0 +1,31 @@
+.educationEntry {
+  margin-bottom: 18px;
+}
+
+.educationEntry:last-child {
+  margin-bottom: 0;
+}
+
+.educationEntry__name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+.educationEntry__sub {
+  font-size: 14.5px;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+.educationEntry__note {
+  font-size: 13.5px;
+  color: var(--text-faint);
+  margin-top: 3px;
+}
+
+@media print {
+  .educationEntry__name {
+    color: #111;
+  }
+}

@@ -1,0 +1,27 @@
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 28px 200px;
+}
+
+.page__separator {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 24px 0;
+}
+
+@media print {
+  .page {
+    padding-bottom: 40px;
+  }
+
+  .page__separator {
+    border-color: #ddd;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 24px 16px 180px;
+  }
+}
