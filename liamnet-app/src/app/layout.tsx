@@ -24,6 +24,9 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        <meta name="apple-mobile-web-app-title" content="LiamNet" />
+      </head>
       <body className="antialiased">
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <NextIntlClientProvider locale={locale} messages={messages}>

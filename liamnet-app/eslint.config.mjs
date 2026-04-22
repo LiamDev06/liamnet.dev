@@ -163,6 +163,7 @@ const eslintConfig = defineConfig([
       "src/app/**/default.{ts,tsx,js,jsx}",
       "src/app/**/template.{ts,tsx,js,jsx}",
       "src/app/**/route.{ts,tsx,js,jsx}",
+      "src/app/**/manifest.{ts,tsx,js,jsx}",
       "src/i18n/request.ts",
     ],
     rules: {
