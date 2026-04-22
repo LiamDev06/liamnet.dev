@@ -8,8 +8,9 @@ import { ReactQueryProviderWrapper } from "@/components/ReactQueryProviderWrappe
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "LiamNet - Liam Hillefors's Personal site",
-  description: "LiamNet - Liam Hillefors's Personal site",
+  title: "LiamNet",
+  description:
+    "Software engineer and product manager building AI-powered products. Currently at Meitner, shipping across the full stack in EdTech.",
 };
 
 type RootLayoutProps = {
