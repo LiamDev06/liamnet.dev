@@ -7,6 +7,7 @@
   padding: 12px 28px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   font-family: var(--font-mono);
   font-size: 13.5px;
 }
@@ -23,6 +24,15 @@
   height: 10px;
   border-radius: 50%;
   background: var(--accent-green);
+}
+
+.topBar__githubLink {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--text-dim);
+  opacity: 0.6;
+  text-decoration: none;
 }
 
 @media print {
