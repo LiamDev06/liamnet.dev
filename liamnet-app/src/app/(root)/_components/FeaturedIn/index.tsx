@@ -1,3 +1,5 @@
+import classNames from "classnames";
+
 import type { PressEntryData } from "@/app/(root)/types";
 
 import classes from "./style.module.css";
@@ -31,7 +33,10 @@ export function FeaturedIn({ entries }: FeaturedInProps) {
                 {entry.publication}
               </span>
               <span
-                className={`${classes.featuredIn__badge} ${classes[`featuredIn__badge--${entry.type}`]}`}
+                className={classNames(
+                  classes.featuredIn__badge,
+                  classes[`featuredIn__badge--${entry.type}`]
+                )}
               >
                 {TYPE_LABELS[entry.type]}
               </span>
