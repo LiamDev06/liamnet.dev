@@ -3,17 +3,13 @@ import { Fragment } from "react";
 import { AssistantMessage } from "./_components/AssistantMessage";
 import { BottomInputBar } from "./_components/BottomInputBar";
 import { ContactCard } from "./_components/ContactCard";
-import { EducationEntry } from "./_components/EducationEntry";
 import { ExperienceEntry } from "./_components/ExperienceEntry";
+import { FeaturedIn } from "./_components/FeaturedIn";
 import { HumanMessage } from "./_components/HumanMessage";
 import { SkillGroup } from "./_components/SkillGroup";
 import { ToolBlock } from "./_components/ToolBlock";
 import { TopBar } from "./_components/TopBar";
-import {
-  educationEntries,
-  experienceEntries,
-  skillGroups,
-} from "./resumeDummyData";
+import { experienceEntries, pressEntries, skillGroups } from "./data";
 
 import classes from "./style.module.css";
 
@@ -24,7 +20,37 @@ export default function HomePage() {
       <main className={classes.page}>
         <HumanMessage>Tell me about Liam Hillefors</HumanMessage>
         <AssistantMessage>
-          <p>Liam Hillefors is a 19-year-old...</p>
+          <p>
+            Liam Hillefors is a software engineer and product manager based in
+            Stockholm, and the sole engineer behind{" "}
+            <a
+              href="https://www.meitner.se/en-gb/ai"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Meitner AI
+            </a>
+            , an AI-powered learning platform used daily by teachers and
+            students across Swedish schools.
+          </p>
+          <p>
+            He built it from scratch as a high-school project under Junior
+            Achievement Sweden and won JA national championship with it in 2025
+            (1st place out of 43,000+ students across 11,000+ companies). With
+            only a month left until the JA program year was about to end, the
+            product was acquired by Meitner, Sweden's fastest-growing school
+            management platform, making the company the only JA Sweden entry
+            ever in the program's history to be acquired during its program
+            year. He joined Meitner straight out of high school to continue
+            running the product end-to-end, becoming the first engineer hired
+            specifically to build AI products.
+          </p>
+          <p>
+            He started coding at 13, beginning with Java plugins for Minecraft
+            servers and eventually spanning the full product stack, from the AI
+            application layer through the frontend, backend, and infrastructure.
+            Off-keyboard, he plays piano and drums.
+          </p>
         </AssistantMessage>
         <ToolBlock label="Read" argument="contact.json">
           <ContactCard />
@@ -52,19 +78,17 @@ export default function HomePage() {
             />
           ))}
         </ToolBlock>
-        <HumanMessage>Now education</HumanMessage>
-        <ToolBlock label="Read" argument="education.md">
-          {educationEntries.map((entry) => (
-            <EducationEntry
-              key={entry.name}
-              name={entry.name}
-              sub={entry.sub}
-              note={entry.note}
-            />
-          ))}
+        <HumanMessage>Where has he been featured?</HumanMessage>
+        <AssistantMessage>
+          <p>
+            Liam has been featured across Swedish national media and events,
+            from national television and public radio to the country{"'"}s
+            leading tech press. Here are some examples:
+          </p>
+        </AssistantMessage>
+        <ToolBlock label="Glob" argument="featured-in/**">
+          <FeaturedIn entries={pressEntries} />
         </ToolBlock>
-        <HumanMessage>What are some stuff he is looking for next</HumanMessage>
-        <AssistantMessage>I want to...</AssistantMessage>
       </main>
       <BottomInputBar />
     </>

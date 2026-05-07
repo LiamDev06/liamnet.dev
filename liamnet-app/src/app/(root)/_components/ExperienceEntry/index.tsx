@@ -1,4 +1,4 @@
-import type { ExperienceEntryData } from "@/app/(root)/resumeDummyData";
+import type { ExperienceEntryData } from "@/app/(root)/types";
 
 import classes from "./style.module.css";
 
@@ -7,7 +7,7 @@ type ExperienceEntryProps = {
 };
 
 export function ExperienceEntry({ entry }: ExperienceEntryProps) {
-  const { role, date, org, items } = entry;
+  const { role, date, subtitle, summary } = entry;
 
   return (
     <div className={classes.experienceEntry}>
@@ -15,12 +15,8 @@ export function ExperienceEntry({ entry }: ExperienceEntryProps) {
         <span className={classes.experienceEntry__role}>{role}</span>
         <span className={classes.experienceEntry__date}>{date}</span>
       </div>
-      <div className={classes.experienceEntry__org}>{org}</div>
-      <ul className={classes.experienceEntry__items}>
-        {items.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
+      <div className={classes.experienceEntry__subtitle}>{subtitle}</div>
+      <p className={classes.experienceEntry__summary}>{summary}</p>
     </div>
   );
 }

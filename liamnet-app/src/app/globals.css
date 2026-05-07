@@ -43,8 +43,12 @@ body {
 }
 
 a {
-  color: inherit;
+  color: #6ba3d4;
   text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 @media print {
