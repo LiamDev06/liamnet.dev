@@ -10,7 +10,7 @@ export const experienceEntries: ExperienceEntryData[] = [
     date: "Jun 2025 — present",
     subtitle: "Meitner · EdTech · Stockholm",
     summary:
-      "Sole engineer and product manager on Meitner AI: a system of LLM agents used daily " +
+      "Sole engineer and product manager on Meitner AI: a system of LLM workflows and agents used daily " +
       "by 20,000+ teachers across 350+ Swedish schools, with outputs reaching 70,000+ students " +
       "downstream. Joined straight out of high school post-acquisition, leading the product " +
       "end-to-end across architecture, AI systems, roadmap, and direct customer discovery.",
