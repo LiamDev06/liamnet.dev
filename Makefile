@@ -21,7 +21,7 @@ server:
 	@./gradlew :liamnet-server:bootRun
 
 frontend:
-	@cd liamnet-app && npm run dev
+	@cd liamnet-app && pnpm dev
 
 %:
 	@:

@@ -1,12 +1,13 @@
 FROM node:22-alpine AS builder
 WORKDIR /workspace
 COPY . .
+RUN corepack enable && corepack prepare pnpm@10.15.0 --activate
 WORKDIR /workspace/liamnet-app
-RUN npm ci
+RUN pnpm install --frozen-lockfile --ignore-scripts
 ARG NEXT_PUBLIC_API_BASE_URL
 ENV NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL
 ENV NEXT_TELEMETRY_DISABLED=1
-RUN npm run build
+RUN pnpm build
 
 FROM node:22-alpine AS runtime
 WORKDIR /app

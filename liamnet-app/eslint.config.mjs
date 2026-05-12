@@ -1,4 +1,3 @@
-import typescriptEslint from "@typescript-eslint/eslint-plugin";
 import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
@@ -15,7 +14,6 @@ const eslintConfig = defineConfig([
   {
     files: ["**/*.{ts,tsx,js,jsx,mjs,cjs}"],
     plugins: {
-      "@typescript-eslint": typescriptEslint,
       react,
       "simple-import-sort": simpleImportSort,
       unicorn,
