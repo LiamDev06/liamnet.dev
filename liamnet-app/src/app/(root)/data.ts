@@ -58,7 +58,9 @@ export const pressEntries: PressEntryData[] = [
     date: "2025",
   },
   {
-    title: "Featured on Nyhetsmorgon the morning after winning JA Sweden",
+    title:
+      "Featured on Nyhetsmorgon, Sweden's national morning show, the morning " +
+      "after winning Junior Achievement Sweden",
     publication: "TV4",
     type: "tv",
     url: "https://www.tv4play.se/program/67ff22880e988cd4d149/nyhetsmorgon",
@@ -80,10 +82,18 @@ export const pressEntries: PressEntryData[] = [
   },
   {
     title:
-      "Built an AI tool for teachers, won SM, and got acquired before graduation",
+      "Built an AI tool for teachers, won the Swedish national championship, " +
+      "and got acquired before graduation",
     publication: "TN",
     type: "press",
     url: "https://www.tn.se/entreprenorskap/45530/byggde-ai-tjanst-for-larare-vann-sm-och-blev-uppkopta-innan-studenten/",
+    date: "2025",
+  },
+  {
+    title: "The students who built AI for teachers for a few hundred kronor",
+    publication: "Dagens Industri",
+    type: "press",
+    url: "https://www.di.se/digital/studenterna-har-byggt-ai-for-larare-nagra-hundralappar/",
     date: "2025",
   },
 ];
