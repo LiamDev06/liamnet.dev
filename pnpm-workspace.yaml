@@ -1,0 +1,9 @@
+packages:
+  - "liamnet-app"
+  - "liamnet-api/liamnet-api-typescript/src"
+
+registry: https://registry.npmjs.org/
+ignoreScripts: true
+saveExact: true
+minimumReleaseAge: 10080
+onlyBuiltDependencies: []

@@ -31,22 +31,20 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10.15.0
+          version: 11.1.2
           run_install: false
 
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
           cache: "pnpm"
-          cache-dependency-path: liamnet-app/pnpm-lock.yaml
+          cache-dependency-path: pnpm-lock.yaml
 
       - name: Install dependencies
-        working-directory: liamnet-app
         run: pnpm install --frozen-lockfile --ignore-scripts
 
       - name: Lint, typecheck, format check
-        working-directory: liamnet-app
-        run: pnpm check
+        run: pnpm --filter liamnet-app check
 
   lint-test-backend:
     name: Backend lint & test
