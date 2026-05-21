@@ -6,7 +6,7 @@ import type {
 
 export const experienceEntries: ExperienceEntryData[] = [
   {
-    role: "AI Engineer & Product Manager",
+    role: "Full-Stack Engineer & Product Manager",
     date: "Jun 2025 — present",
     subtitle: "Meitner · EdTech · Stockholm",
     summary:
