@@ -10,10 +10,11 @@ export const experienceEntries: ExperienceEntryData[] = [
     date: "Jun 2025 — present",
     subtitle: "Meitner · EdTech · Stockholm",
     summary:
-      "Sole engineer and product manager on Meitner AI: a system of LLM workflows and agents used daily " +
-      "by 20,000+ teachers across 350+ Swedish schools, with outputs reaching 70,000+ students " +
-      "downstream. Joined straight out of high school post-acquisition, leading the product " +
-      "end-to-end across architecture, AI systems, roadmap, and direct customer discovery.",
+      "Sole engineer behind Meitner AI: an end-to-end production AI system grounded in the Swedish " +
+      "national curriculum for lesson planning, material creation, and student feedback. Used by " +
+      "20,000+ teachers across 350+ Swedish schools, with outputs reaching 70,000+ students " +
+      "downstream. Joined straight out of high school post-acquisition, shaping the product through " +
+      "direct discovery with teachers, school leadership, and enterprise customers.",
   },
   {
     role: "Java Developer & QA Tester",
@@ -102,13 +103,11 @@ export const skillGroups: SkillGroupData[] = [
   {
     title: "AI & LLM Engineering",
     tags: [
-      "LLM Agents",
-      "System Prompt Design",
-      "LLM Eval & Regression Testing",
-      "Prompt A/B Testing",
-      "Supervised Fine-Tuning",
-      "RAG & Embeddings",
-      "Agentic Systems",
+      "Compound AI Systems",
+      "Inference Orchestration",
+      "Fine-Tuning (SFT) & Data Curation",
+      "LLM Evals",
+      "RAG",
     ],
   },
   {
@@ -118,7 +117,6 @@ export const skillGroups: SkillGroupData[] = [
       "Python",
       "TypeScript",
       "SQL",
-      "Next.js",
       "React",
       "Node.js",
       "Spring Boot",
@@ -133,7 +131,6 @@ export const skillGroups: SkillGroupData[] = [
     tags: [
       "Customer Discovery",
       "Stakeholder Alignment",
-      "Technical Presentations",
       "Cross-functional Collaboration",
     ],
   },
