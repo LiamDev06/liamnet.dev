@@ -112,15 +112,7 @@ export const skillGroups: SkillGroupData[] = [
   },
   {
     title: "Languages & Frameworks",
-    tags: [
-      "Java",
-      "Python",
-      "TypeScript",
-      "SQL",
-      "React",
-      "Node.js",
-      "Spring Boot",
-    ],
+    tags: ["Java", "Python", "TypeScript", "SQL", "React", "Spring Boot"],
   },
   {
     title: "Infrastructure",
